@@ -5,7 +5,8 @@ public class Cliente {
     String cpf;
 
     public Cliente (String nome, String cpf){
-
+        this.nome = nome;
+        this.cpf = cpf;
     }
 
     public String getNome() {

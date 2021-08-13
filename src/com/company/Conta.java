@@ -6,10 +6,15 @@ abstract class Conta {
     int agencia;
     Cliente cliente;
     double saldo;
+    static int i = 0;
+    static int j = 0;
 
 
-    public Conta(int numero, int agencia, Cliente cliente) {
-          saldo = 0;
+    public Conta(Cliente cliente) {
+        numero = ++i;
+        agencia = ++j;
+        this.cliente = cliente;
+        saldo = 0.0;
 
     }
 
@@ -41,10 +46,21 @@ abstract class Conta {
         return saldo;
     }
 
-    abstract void sacar();
+   abstract void sacar(double valor);
 
 
-    public void depositar(){
+    public void depositar(double valor) {
+        if (valor >= 0) {
+            saldo = saldo + valor;
+        }
+    }
 
+    public void imprimirDados() {
+        System.out.println("Número da conta: " + this.numero);
+        System.out.println("Agência: " + this.agencia);
+        System.out.println("Nome: " + cliente.nome);
+        System.out.println("CPF: " + cliente.cpf);
+        System.out.println("Saldo: " + this.saldo);
+        System.out.println("==============\n==============\n");
     }
 }

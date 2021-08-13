@@ -2,11 +2,17 @@ package com.company;
 
 public class ContaCorrente extends Conta {
 
-    public ContaCorrente(int numero, int agencia, Cliente cliente) {
-        super(numero, agencia, cliente);
+
+    public ContaCorrente(Cliente cliente) {
+        super(cliente);
     }
 
-    void sacar() {
-
+    void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo = saldo - (valor + 0.10);
+        } else {
+            System.out.println("Não há saldo!\n");
+        }
     }
+
 }
